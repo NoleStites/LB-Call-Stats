@@ -1,33 +1,41 @@
-/* --- COLOR THEME --- */
+/* ===================== */
+/* 🎨 COLOR SYSTEM       */
+/* ===================== */
 :root {
-    --primary: #141A45;
-    --accent: #7C170D;
+    --primary: #141A45;   /* navy */
+    --accent: #7C170D;    /* deep red */
     --background: #ECE1D5;
     --card-bg: #ffffff;
-    --text-dark: #141A45;
-    --text-light: #666;
 }
 
-/* --- BASE --- */
+/* ===================== */
+/* 🌐 BASE LAYOUT        */
+/* ===================== */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background: var(--background);
     color: var(--primary);
-    /* border-top: 6px solid var(--primary); */
+
+    /* makes navy feel more intentional as a brand color */
+    border-top: 6px solid var(--primary);
+    font-size: 16px;
 }
 
-/* --- TITLE --- */
+/* ===================== */
+/* 🏷️ TITLE              */
+/* ===================== */
 h1 {
     text-align: center;
     color: var(--primary);
     margin-bottom: 25px;
     font-weight: 800;
     letter-spacing: 0.5px;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.05);
 }
 
-/* --- STATS GRID --- */
+/* ===================== */
+/* 📊 STATS GRID         */
+/* ===================== */
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -35,7 +43,9 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* --- CARDS --- */
+/* ===================== */
+/* 🧾 CARDS              */
+/* ===================== */
 .card {
     background: var(--card-bg);
     border-radius: 14px;
@@ -43,7 +53,7 @@ h1 {
     text-align: center;
 
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    border-top: 4px solid var(--accent);
+    border-top: 3px solid var(--primary);
 
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -55,19 +65,26 @@ h1 {
 
 .card h3 {
     margin: 0;
-    font-size: 14px;
+    font-size: 0.85rem;
     color: rgba(20, 26, 69, 0.65);
     letter-spacing: 0.5px;
 }
 
 .card p {
     margin: 10px 0 0;
-    font-size: 24px;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--primary);
 }
 
-/* --- CHART CONTAINER --- */
+/* Optional accent variation (if you ever want it) */
+.card.special {
+    border-top: 3px solid var(--accent);
+}
+
+/* ===================== */
+/* 📈 CHART              */
+/* ===================== */
 canvas {
     background: white;
     border-radius: 14px;
@@ -75,11 +92,39 @@ canvas {
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* --- OPTIONAL: ACCENT TOUCHES --- */
-.card:nth-child(odd) {
-    border-top-color: var(--primary);
-}
+/* ===================== */
+/* 📱 MOBILE STYLES      */
+/* ===================== */
+@media (max-width: 600px) {
 
-.card:nth-child(even) {
-    border-top-color: var(--accent);
+    body {
+        margin: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .card h3 {
+        font-size: 0.75rem;
+    }
+
+    .card p {
+        font-size: 1.1rem;
+    }
+
+    canvas {
+        padding: 8px;
+    }
 }
