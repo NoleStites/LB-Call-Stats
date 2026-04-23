@@ -1,0 +1,85 @@
+/* --- COLOR THEME --- */
+:root {
+    --primary: #141A45;
+    --accent: #7C170D;
+    --background: #ECE1D5;
+    --card-bg: #ffffff;
+    --text-dark: #141A45;
+    --text-light: #666;
+}
+
+/* --- BASE --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: var(--background);
+    color: var(--primary);
+    /* border-top: 6px solid var(--primary); */
+}
+
+/* --- TITLE --- */
+h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+/* --- STATS GRID --- */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(20, 26, 69, 0.65);
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* --- CHART CONTAINER --- */
+canvas {
+    background: white;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* --- OPTIONAL: ACCENT TOUCHES --- */
+.card:nth-child(odd) {
+    border-top-color: var(--primary);
+}
+
+.card:nth-child(even) {
+    border-top-color: var(--accent);
+}
